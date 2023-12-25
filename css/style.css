@@ -578,6 +578,49 @@ span {
   width: 60%;
 }
 
+/* project section styles */
+.projects {
+  min-height: auto;
+  /* padding-bottom: 7rem; */
+  padding-bottom: 14.5rem;
+  background: var(--second-bg-color);
+}
+
+.projects h2 {
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.projects .projects-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 40px;
+}
+
+.projects-box img {
+  max-width: 500px;
+  max-height: 500px;
+  border: 0.2rem solid var(--main-color);
+  padding: 3.5rem;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.projects-box a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.projects-box figcaption {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
 /* contact section styles */
 .contact {
   min-height: auto;
@@ -771,6 +814,11 @@ section:nth-child(odd) .animate.scroll,
   html {
     font-size: 55%;
   }
+
+  .projects-box img {
+    max-width: 400px;
+    max-height: 400px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -786,6 +834,11 @@ section:nth-child(odd) .animate.scroll,
     padding: 0 4%;
   }
 
+  .projects-box img {
+    max-width: 350px;
+    max-height: 350px;
+  }
+
   .footer {
     padding: 2rem 4%;
   }
@@ -795,11 +848,27 @@ section:nth-child(odd) .animate.scroll,
   .animate.home-img {
     width: 55%;
   }
+
+  .projects-box img {
+    max-width: 300px;
+    max-height: 300px;
+  }
 }
 
 @media (max-width: 768px) {
   .header {
     background: var(--bg-color);
+  }
+
+  .projects .projects-box {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  
+  .projects-box img {
+    max-width: 400px;
+    max-height: 400px;
   }
 
   #menu-icon {
@@ -899,6 +968,17 @@ section:nth-child(odd) .animate.scroll,
   .footer p {
     text-align: center;
   }
+
+  .projects .projects-box {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  
+  .projects-box img {
+    max-width: 300px;
+    max-height: 300px;
+  }
 }
 
 @media (max-width: 395px) {
@@ -934,6 +1014,17 @@ section:nth-child(odd) .animate.scroll,
   .home-sci {
     width: 260px;
     gap: 1rem;
+  }
+
+  .projects .projects-box {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  
+  .projects-box img {
+    max-width: 250px;
+    max-height: 250px;
   }
 }
 
