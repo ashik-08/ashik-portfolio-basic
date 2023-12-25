@@ -302,3 +302,13 @@ span {
 .btn-box.btns a::before {
   background: var(--second-bg-color);
 }
+
+/* education section styles */
+.education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+}
