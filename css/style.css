@@ -90,6 +90,7 @@ section {
 
 .home-content {
   max-width: 60rem;
+  z-index: 99;
 }
 
 .home-content h1 {
@@ -104,7 +105,8 @@ section {
 
 .home-content .text-animate {
   position: relative;
-  width: 32.8rem;
+  /* width: 32.8rem; */
+  width: 41.5rem;
 }
 
 .home-content .text-animate h3 {
@@ -112,6 +114,26 @@ section {
   font-weight: 700;
   color: transparent;
   -webkit-text-stroke: 0.7px var(--main-color);
+  background-image: linear-gradient(var(--main-color), var(--main-color));
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: -42rem 0;
+  animation: homeBgText 6s linear infinite;
+  animation-delay: 2s;
+}
+
+.home-content .text-animate h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid var(--main-color);
+  z-index: -1;
+  animation: homeCursorText 6s linear infinite;
+  animation-delay: 2s;
 }
 
 .home-content p {
@@ -181,7 +203,8 @@ section {
 
 .home-sci {
   position: absolute;
-  bottom: 9rem;
+  /* bottom: 9rem; */
+  bottom: 5rem;
   width: 300px;
   display: flex;
   justify-content: space-between;
@@ -727,5 +750,120 @@ span {
   .navbar.active a {
     transform: translateX(0);
     transition-delay: 0.25s;
+  }
+
+  .home-imgHover {
+    pointer-events: none;
+    background: var(--bg-color);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 520px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home-content h1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-sci {
+    bottom: 4rem;
+  }
+}
+
+@media (max-width: 467px) {
+  .home-content h1 {
+    font-size: 5.2rem;
+  }
+
+  .education {
+    padding: 10rem 4% 5rem 5%;
+  }
+
+  .contact form .input-box .input-field {
+    width: 100%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 395px) {
+  html {
+    font-size: 45%;
+  }
+
+  .home {
+    justify-content: center;
+  }
+
+  .home-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-sci {
+    bottom: 3rem;
+  }
+}
+
+@media (max-width: 300px) {
+  html {
+    font-size: 40%;
+  }
+
+  .home-sci {
+    width: 260px;
+    gap: 1rem;
+  }
+}
+
+/* KEYFRAMES ANIMATION */
+@keyframes homeBgText {
+  0%,
+  10%,
+  100% {
+    /* background-position: -33rem 0; */
+    background-position: -42rem 0;
+  }
+
+  65%,
+  85% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes homeCursorText {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  65%,
+  78%,
+  85% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  75%,
+  81% {
+    opacity: 0;
   }
 }
