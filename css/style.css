@@ -790,10 +790,16 @@ span {
   animation: none;
 }
 
-section:nth-child(odd) .animate.scroll,
+/* section:nth-child(odd) .animate.scroll, */
+.about .animate.scroll,
+.skills .animate.scroll,
 .footer .animate.scroll {
   background: var(--second-bg-color);
 }
+
+/* .contact .animate.scroll {
+  background: var(--bg-color);
+} */
 
 .education .education-box .animate.scroll {
   width: 105%;
@@ -865,7 +871,7 @@ section:nth-child(odd) .animate.scroll,
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-  
+
   .projects-box img {
     max-width: 400px;
     max-height: 400px;
@@ -974,7 +980,7 @@ section:nth-child(odd) .animate.scroll,
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-  
+
   .projects-box img {
     max-width: 300px;
     max-height: 300px;
@@ -1021,7 +1027,7 @@ section:nth-child(odd) .animate.scroll,
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-  
+
   .projects-box img {
     max-width: 250px;
     max-height: 250px;
