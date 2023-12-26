@@ -51,3 +51,60 @@ window.onscroll = () => {
     this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight
   );
 };
+
+// form response and reset upon successful submission
+var form = document.getElementById("my-form");
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  var status = document.getElementById("my-form-status");
+  var data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        // Show success toast
+        Toastify({
+          text: "I will get back to you soon!",
+          duration: 3000,
+          gravity: "top",
+          backgroundColor: "#4BB543",
+        }).showToast();
+
+        // reset form
+        form.reset();
+      } else {
+        response.json().then((data) => {
+          if (Object.hasOwn(data, "errors")) {
+            Toastify({
+              text: data["errors"].map((error) => error["message"]).join(", "),
+              duration: 3000,
+              gravity: "top",
+              backgroundColor: "#D80032",
+            }).showToast();
+          } else {
+            Toastify({
+              text: "Oops! You should try again",
+              duration: 3000,
+              gravity: "top",
+              backgroundColor: "#D80032",
+            }).showToast();
+          }
+        });
+      }
+    })
+    .catch((error) => {
+      Toastify({
+        text: "Oops! Couldn't get you",
+        duration: 3000,
+        gravity: "top",
+        backgroundColor: "#D80032",
+      }).showToast();
+    });
+}
+form.addEventListener("submit", handleSubmit);
