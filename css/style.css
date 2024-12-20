@@ -114,9 +114,8 @@ section {
 
 .home-content .text-animate {
   position: relative;
-  /* width: 32.8rem; */
-  /* width: 41.5rem; */
-  width: 42.4rem;
+  /* width: 42.4rem; */
+  width: max-content;
 }
 
 .home-content .text-animate h3 {
@@ -128,8 +127,10 @@ section {
   background-repeat: no-repeat;
   background-clip: text;
   -webkit-background-clip: text;
-  background-position: -43rem 0;
-  /* animation: homeBgText 6s linear infinite; */
+  /* background-position: -43rem 0; */
+  background-position: var(--bg-position, -100%) 0;
+  animation: homeBgText 6s linear infinite;
+  --role-width: 0;
   /* animation-delay: 2s; */
 }
 
@@ -143,10 +144,11 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
+  /* width: 0; */
+  width: var(--role-width);
   height: 100%;
   border-right: 2px solid var(--main-color);
-  z-index: -1;
+  /* z-index: -1; */
   /* animation: homeCursorText 6s linear infinite; */
   /* animation-delay: 2s; */
 }
@@ -612,6 +614,9 @@ span {
   height: 100%;
   border-bottom: 0.2rem solid var(--main-color);
   overflow: scroll;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 4/3;
 }
 
 .project-item figcaption {
@@ -1066,7 +1071,8 @@ span {
   10%,
   100% {
     /* background-position: -33rem 0; */
-    background-position: -42.5rem 0;
+    /* background-position: -42.5rem 0; */
+    background-position: var(--bg-position, -100%) 0;
   }
 
   65%,

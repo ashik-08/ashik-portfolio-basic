@@ -52,6 +52,23 @@ window.onscroll = () => {
   );
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const roleElement = document.querySelector(".text-animate h3");
+  const roles = roleElement.getAttribute("data-roles").split(", ");
+  let roleIndex = 0;
+
+  function updateRole() {
+    roleElement.textContent = roles[roleIndex];
+    const roleWidth = roleElement.offsetWidth;
+    roleElement.style.setProperty("--role-width", `${roleWidth}px`);
+    roleElement.style.setProperty("--bg-position", `-${roleWidth}px`);
+    roleIndex = (roleIndex + 1) % roles.length;
+  }
+
+  updateRole();
+  setInterval(updateRole, 6000); // Change role every 6 seconds
+});
+
 // form response and reset upon successful submission
 var form = document.getElementById("my-form");
 
